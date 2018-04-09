@@ -1,0 +1,25 @@
+##############################################################################
+# Libraries
+##############################################################################
+
+add_library(plugins plugin.cpp)
+
+add_library(plugin_manager shared_library.cpp)
+target_link_libraries(plugin_manager plugins dl)
+
+add_library(agents agent_foo.cpp)
+target_link_libraries(agents plugins)
+
+##############################################################################
+# Installs
+##############################################################################
+
+install(
+  TARGETS
+    plugins
+    plugin_manager
+    agents
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+)
