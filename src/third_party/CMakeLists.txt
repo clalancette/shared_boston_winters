@@ -2,7 +2,8 @@
 # Libraries
 ##############################################################################
 
-add_library(third_party third_party.cpp)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+add_library(third_party STATIC third_party.cpp)
 
 ##############################################################################
 # Installs

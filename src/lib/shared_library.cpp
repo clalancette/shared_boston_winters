@@ -20,7 +20,6 @@ namespace sbw {
 *****************************************************************************/
 
 SharedLibrary::SharedLibrary(const std::string& name)
-    throw (SharedLibraryException)
     : handle_(nullptr)
 {
 

@@ -42,8 +42,7 @@ class PluginManager {
 public:
   PluginManager();
 
-  PluginType* findPlugin(const std::string& name)
-    throw (SharedLibraryException);
+  PluginType* findPlugin(const std::string& name);
 
 private:
   struct PluginInfo {
@@ -69,7 +68,6 @@ PluginManager<PluginType>::PluginManager()
 
 template <typename PluginType>
 PluginType* PluginManager<PluginType>::findPlugin(const std::string& name)
-    throw (SharedLibraryException)
 {
   if (plugin_map_.count(name) > 0) {
     return dynamic_cast<sbw::AgentPlugin*>(plugin_map_[name]->plugin);

@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
   sbw::PluginManager<sbw::AgentPlugin> plugin_manager;
   sbw::AgentPlugin* agent_plugin = plugin_manager.findPlugin(plugin_name);
-  std::cout << "Agent Plugin has this to say: " << agent_plugin->getSayHelloString() << std::endl;
+  std::cerr << "Agent Plugin has this to say: " << agent_plugin->getSayHelloString() << std::endl;
 
   return 0;
 }

@@ -38,12 +38,11 @@ private:
 
 class SharedLibrary {
 public:
-  SharedLibrary(const std::string& name) throw(SharedLibraryException);
+  SharedLibrary(const std::string& name);
   ~SharedLibrary();
 
   template<typename T>
-  std::function<T> findSymbol(const std::string& name) const
-    throw(SharedLibraryException);
+  std::function<T> findSymbol(const std::string& name) const;
 private:
   void* handle_;
 };
@@ -54,7 +53,6 @@ private:
 
 template<typename T>
 std::function<T> SharedLibrary::findSymbol(const std::string& name) const
-  throw (SharedLibraryException)
 {
   dlerror(); // clear error flags
   void* symbol_address = dlsym(handle_, name.c_str());
