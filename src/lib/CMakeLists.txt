@@ -8,7 +8,7 @@ add_library(plugin_manager shared_library.cpp)
 target_link_libraries(plugin_manager plugins dl)
 
 add_library(agents agent_foo.cpp)
-target_link_libraries(agents plugins)
+target_link_libraries(agents plugins third_party)
 
 ##############################################################################
 # Installs

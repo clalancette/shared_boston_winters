@@ -1,20 +1,17 @@
 ##############################################################################
-# Subdirectories
+# Libraries
 ##############################################################################
 
-add_subdirectory(lib)
-add_subdirectory(third_party)
+add_library(third_party third_party.cpp)
 
 ##############################################################################
-# Binaries
+# Installs
 ##############################################################################
-
-add_executable(world main.cpp)
-target_link_libraries(world plugin_manager plugins third_party)
 
 install(
   TARGETS
-    world
-  RUNTIME DESTINATION
-    bin
-  )
+    third_party
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+)

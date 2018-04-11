@@ -24,7 +24,7 @@ SharedLibrary::SharedLibrary(const std::string& name)
     : handle_(nullptr)
 {
 
-  handle_ = ::dlopen(name.c_str(), RTLD_GLOBAL | RTLD_NOW);
+  handle_ = ::dlopen(name.c_str(), RTLD_GLOBAL | RTLD_LAZY);
   if (!handle_) {
     const char* s = ::dlerror();
     throw SharedLibraryException(s ? s : "Exact Error Not Reported");

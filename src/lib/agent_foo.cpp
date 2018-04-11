@@ -5,7 +5,11 @@
 ** Includes
 *****************************************************************************/
 
+#include <iostream>
+
 #include "../../include/sbw/agent_foo.hpp"
+
+#include "../../include/sbw/third_party.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -22,6 +26,12 @@ FooAgentPlugin::~FooAgentPlugin() {}
 
 const char* FooAgentPlugin::getSayHelloString() const
 {
+  std::vector<std::string> paths = third_party::getPaths();
+  std::cerr << "Paths in getSayHelloString:" << std::endl;
+  for (auto& path : paths) {
+    std::cerr << "    path: " << path << std::endl;
+  }
+
   return "Hello, World from Foo!";
 }
 
